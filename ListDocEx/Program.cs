@@ -47,5 +47,24 @@ public class Example
         parts.Add(new Part() { PartName = "banana seat", PartId = 1444 });
         parts.Add(new Part() { PartName = "cassette", PartId = 1534 });
         parts.Add(new Part() { PartName = "shift lever", PartId = 1634 });
+        
+        //Write out the parts in the list. This will call the overridden
+        //ToString method in the Part class
+        Console.WriteLine();
+        foreach (Part aPart in parts)
+        {
+            Console.WriteLine(aPart);
+        }
+        
+        //Check the list for part #1734. This calls the IEquatable. Equals method
+        // of the Part class, which checks the PartId for equality.
+        Console.WriteLine("\nContains(\"1734\"): {0}",
+            parts.Contains(new Part {PartId = 1734, PartName = "" }));
+        
+        //insert a new item at position 2.
+        Console.WriteLine("\nInsert(2, \"1834)\")");
+        parts.Insert(2, new Part() { PartName = "brake lever", PartId = 1834 });
+        
+        //Console.
     }
 }
