@@ -65,6 +65,14 @@ public class Example
         Console.WriteLine("\nInsert(2, \"1834)\")");
         parts.Insert(2, new Part() { PartName = "brake lever", PartId = 1834 });
         
-        //Console.
+        //Console.WriteLine();
+        foreach (Part aPart in parts)
+        {
+            Console.WriteLine(aPart);
+        }
+        
+        Console.WriteLine("\nParts[3]: {0}", parts[3]);
+        Console.WriteLine("\nRemove(\"1534\")");
+        
     }
 }
