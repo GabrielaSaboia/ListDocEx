@@ -18,7 +18,7 @@ public class Part : IEquatable<Part>
         if (obj == null) return false;
         Part objAsPart = obj as Part; //as operator is used to perform conversion between compatible reference types
         if (objAsPart == null) return false;
-        else return Equals(ObjAsPart);
+        else return Equals(objAsPart);
     }
 
     public override int GetHashCode()
@@ -74,5 +74,23 @@ public class Example
         Console.WriteLine("\nParts[3]: {0}", parts[3]);
         Console.WriteLine("\nRemove(\"1534\")");
         
+        //This will remove part 1534 even though the PartName is different,
+        // because the Equals method only checks PartId for equality.
+        parts.Remove(new Part() {PartId = 1534, PartName = "cogs"});
+        
+        Console.WriteLine();
+        foreach (Part aPart in parts)
+        {
+            Console.WriteLine(aPart);
+        }
+        Console.WriteLine("\nRemoveAt(3)");
+        //This will remove the part at index 3.
+        parts.RemoveAt(3);
+        
+        Console.WriteLine();
+        foreach (Part aPart in parts)
+        {
+            Console.WriteLine(aPart);
+        }
     }
 }
